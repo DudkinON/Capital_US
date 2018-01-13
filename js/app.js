@@ -84,7 +84,7 @@ if (initMap !== undefined) var initMap;
        * @return void
        */
 
-      // Get menu container
+        // Get menu container
       var element = document.getElementById('menu');
 
       // Create "a" element and set attributes
@@ -169,18 +169,30 @@ if (initMap !== undefined) var initMap;
        * return array
        */
       return [{
-                headline: {main: "Articles didn't found"},
-                snippet: "",
-                web_url: ""
-              }];
+        headline: {main: "Articles didn't found"},
+        snippet: "",
+        web_url: ""
+      }];
     };
   };
 
 
-    var View = function () {
+  var View = function () {
 
-      // Define scope
-      var scope = this;
-    }
+    // Define scope
+    var scope = this;
+
+    // Define scope variables
+    scope.markers = [];
+    scope.marker = {};
+    scope.worker = new Worker();
+    scope.largeInfowindow = {};
+    scope.bounds = {};
+    scope.title = 'Capital US';
+    scope.locations = ko.observableArray([]);
+    scope.filter = ko.observable("");
+
+
+  }
 
 })();
