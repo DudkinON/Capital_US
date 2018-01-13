@@ -176,4 +176,11 @@ if (initMap !== undefined) var initMap;
     };
   };
 
+
+    var View = function () {
+
+      // Define scope
+      var scope = this;
+    }
+
 })();
