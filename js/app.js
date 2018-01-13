@@ -50,6 +50,16 @@ if (initMap !== undefined) var initMap;
       var link = url + 'api-key=' + $('#ny-api-key').data('api-key') + '&q=' + q;
       $.getJSON(link, func);
     };
+
+    scope.showMarkers = function (markers) {
+
+      var bounds = new google.maps.LatLngBounds();
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+        bounds.extend(markers[i].position);
+      }
+      map.fitBounds(bounds);
+    };
   };
 
 })();
