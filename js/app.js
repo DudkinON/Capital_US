@@ -29,7 +29,12 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.prepareAddress = function (q) {
-
+      /**
+       * Gets a string and creates a new line with "+" character between words
+       * @param q - string
+       * @type {Array|{index: number, input: string}|*}
+       * @return string
+       */
       var re = /[a-zA-Zа-яА-Я0-9]+/g;
       var query = q.match(re);
       return query.join('+');
