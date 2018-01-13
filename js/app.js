@@ -76,6 +76,26 @@ if (initMap !== undefined) var initMap;
         markers[i].setMap(null);
       }
     };
+
+    scope.createLink = function ($scope) {
+
+      var element = document.getElementById('menu');
+
+
+      var a = document.createElement('a');
+      a.setAttribute('class', 'mdl-navigation__link');
+      a.setAttribute('href', "");
+      a.setAttribute('id', $scope.marker.id);
+      a.innerText = $scope.marker.title;
+      element.appendChild(a);
+
+
+      a.addEventListener('click', function (elem) {
+        elem.preventDefault();
+        var item = $scope.markers[Number(this.getAttribute("id"))];
+        $scope.populateInfoWindow(item, $scope.largeInfowindow, $scope.locations);
+      }, false);
+    };
   };
 
 })();
