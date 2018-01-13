@@ -39,6 +39,13 @@ if (initMap !== undefined) var initMap;
       var query = q.match(re);
       return query.join('+');
     };
+
+    scope.getArticles = function (q, func) {
+
+      var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+      var link = url + 'api-key=' + $('#ny-api-key').data('api-key') + '&q=' + q;
+      $.getJSON(link, func);
+    };
   };
 
 })();
