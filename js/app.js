@@ -27,6 +27,13 @@ if (initMap !== undefined) var initMap;
         return false;
       return string.substring(0, startsWith.length) === startsWith;
     };
+
+    scope.prepareAddress = function (q) {
+
+      var re = /[a-zA-Zа-яА-Я0-9]+/g;
+      var query = q.match(re);
+      return query.join('+');
+    };
   };
 
 })();
