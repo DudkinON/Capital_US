@@ -52,7 +52,12 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.showMarkers = function (markers) {
-
+      /**
+       * Show markers
+       * @param {markers}
+       * @type {google.maps.LatLngBounds}
+       * return void
+       */
       var bounds = new google.maps.LatLngBounds();
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
