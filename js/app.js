@@ -137,6 +137,25 @@ if (initMap !== undefined) var initMap;
       // Extend the boundaries of the map for each marker
       map.fitBounds($scope.bounds);
     };
+
+    scope.getTemplate = function (articles, cityinfo, img) {
+
+      return '<div class="nm-card-square mdl-card mdl-shadow--2dp">\n' +
+        '  <div class="mdl-card__title mdl-card--expand" ' +
+        'style="background-image: ' + img + '">' +
+        '    <h2 class="mdl-card__title-text">' + cityinfo.formatted_address + '</h2>\n' +
+        '  </div>\n' +
+        '  <div class="mdl-card__supporting-text">\n' +
+        '  <h4>' + articles[0].headline.main + '</h4>' +
+        '  <p>' + articles[0].snippet + '</p>' +
+        '  </div>\n' +
+        '  <div class="mdl-card__actions mdl-card--border">\n' +
+        '    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ' +
+        '       href="' + articles[0].web_url + '" target="_blank"' +
+        '     >read</a>\n' +
+        '  </div>\n' +
+        '</div>';
+    };
   };
 
 })();
