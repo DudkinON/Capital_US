@@ -275,4 +275,5 @@ if (initMap !== undefined) var initMap;
     }
   };
 
+  ko.applyBindings(new View(), document.getElementsByTagName('html')[0]);
 })();
