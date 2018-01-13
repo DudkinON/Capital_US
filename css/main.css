@@ -1,0 +1,75 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.form-field {
+    width: 185px;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-topleft: 4px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+.container {
+
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.sidebar {
+
+}
+
+.map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.search {
+    min-width: 200px;
+}
+
+.page-content, .mdl-layout__content, #body {
+    height: 100%;
+}
+
+.mdl-layout.is-small-screen .mdl-layout--large-screen-only {
+    display: flex !important;
+}
+
+.mdl-layout__header {
+    background-color: rgb(70, 69, 69) !important;
+}
+
+.nm-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+
+.nm-card-square > .mdl-card__title {
+    color: #fff;
+    background-position: 50% 50% !important;
+    background-size: cover !important;
+}
