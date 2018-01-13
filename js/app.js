@@ -235,6 +235,24 @@ if (initMap !== undefined) var initMap;
 
     // Get locations and init map
     scope.worker.getLocations(scope.init);
+
+    scope.populateInfoWindow = function (marker, infowindow) {
+      // Check to make sure the infowindow is not already opened on this marker.
+      if (infowindow.marker !== marker) {
+        var cityinfo;
+        var city = scope.worker.prepareAddress(marker.title);
+        var request = {placeId: marker.place_id};
+        var service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, function (data) {
+          cityinfo = data;
+          var img_params = 'size=350x350&location=';
+          var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
+          var img = "url('" + img_url + marker.title + '+' + marker.long_name + "')";
+          infowindow.marker = marker;
+
+        });
+      }
+    }
   };
 
 })();
