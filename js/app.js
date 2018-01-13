@@ -164,7 +164,10 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.getEmptyArticle = function () {
-
+      /**
+       * Return empty article
+       * return array
+       */
       return [{
                 headline: {main: "Articles didn't found"},
                 snippet: "",
