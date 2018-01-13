@@ -67,7 +67,11 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.hideMarkers = function (markers) {
-
+      /**
+       * loop through the markers and hide them all
+       * @param {markers}
+       * return void
+       */
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
