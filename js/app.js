@@ -139,7 +139,13 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.getTemplate = function (articles, cityinfo, img) {
-
+      /**
+       * Create template add data and return it
+       * @param {articles | array}
+       * @param {cityinfo | array}
+       * @param {img | url}
+       * @return html
+       */
       return '<div class="nm-card-square mdl-card mdl-shadow--2dp">\n' +
         '  <div class="mdl-card__title mdl-card--expand" ' +
         'style="background-image: ' + img + '">' +
