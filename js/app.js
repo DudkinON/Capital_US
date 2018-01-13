@@ -232,6 +232,9 @@ if (initMap !== undefined) var initMap;
         scope.worker.createMarkers(scope.locations(), scope);
       };
     };
-  }
+
+    // Get locations and init map
+    scope.worker.getLocations(scope.init);
+  };
 
 })();
