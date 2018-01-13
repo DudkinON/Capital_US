@@ -162,6 +162,15 @@ if (initMap !== undefined) var initMap;
         '  </div>\n' +
         '</div>';
     };
+
+    scope.getEmptyArticle = function () {
+
+      return [{
+                headline: {main: "Articles didn't found"},
+                snippet: "",
+                web_url: ""
+              }];
+    };
   };
 
 })();
