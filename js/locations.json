@@ -1,0 +1,502 @@
+[
+  {
+    "title": "Montgomery",
+    "long_name": "Alabama",
+    "short_name": "AL",
+    "place_id": "ChIJ-YHUsJSBjogR_4VCNR1RG44",
+    "location": {
+      "lat": 32.3668052,
+      "lng": -86.2999689
+    }
+  },
+  {
+    "title": "Juneau",
+    "long_name": "Alaska",
+    "short_name": "AK",
+    "place_id": "ChIJjzpqb2zeAFQREfNprlryXgY",
+    "location": {
+      "lat": 58.3019444,
+      "lng": -134.4197221
+    }
+  },
+  {
+    "title": "Phoenix",
+    "place_id": "ChIJy3mhUO0SK4cRrBtKNfjHaYw",
+    "long_name": "Arizona",
+    "short_name": "AZ",
+    "location": {
+      "lat": 33.4483771,
+      "lng": -112.0740373
+    }
+  },
+  {
+    "title": "Little Rock",
+    "place_id": "ChIJm1YfoTSh0ocRF1vzDRD1BTQ",
+    "long_name": "Arkansas",
+    "short_name": "AR",
+    "location": {
+      "lat": 34.7464809,
+      "lng": -92.28959479999999
+    }
+  },
+  {
+    "title": "Sacramento",
+    "place_id": "ChIJ-ZeDsnLGmoAR238ZdKpqH5I",
+    "long_name": "California",
+    "short_name": "CA",
+    "location": {
+      "lat": 38.5815719,
+      "lng": -121.4943996
+    }
+  },
+  {
+    "title": "Denver",
+    "place_id": "ChIJzxcfI6qAa4cR1jaKJ_j0jhE",
+    "long_name": "Colorado",
+    "short_name": "CO",
+    "location": {
+      "lat": 39.7392358,
+      "lng": -104.990251
+    }
+  },
+  {
+    "title": "Hartford",
+    "place_id": "ChIJpVER8hFT5okRmVl96ahKjsw",
+    "long_name": "Connecticut",
+    "short_name": "CT",
+    "location": {
+      "lat": 41.76371109999999,
+      "lng": -72.6850932
+    }
+  },
+  {
+    "title": "Dover",
+    "place_id": "ChIJrV5odTNjx4kR8GwA-0fk4qk",
+    "long_name": "Delaware",
+    "short_name": "DE",
+    "location": {
+      "lat": 39.158168,
+      "lng": -75.5243682
+    }
+  },
+  {
+    "title": "Tallahassee",
+    "place_id": "ChIJU0sSh1GK7IgR-LH91HoH7us",
+    "long_name": "Florida",
+    "short_name": "FL",
+    "location": {
+      "lat": 30.4382559,
+      "lng": -84.28073289999999
+    }
+  },
+  {
+    "title": "Atlanta",
+    "place_id": "ChIJjQmTaV0E9YgRC2MLmS_e_mY",
+    "long_name": "Georgia",
+    "short_name": "GA",
+    "location": {
+      "lat": 33.7489954,
+      "lng": -84.3879824
+    }
+  },
+  {
+    "title": "Honolulu",
+    "place_id": "ChIJTUbDjDsYAHwRbJen81_1KEs",
+    "long_name": "Hawaii",
+    "short_name": "HI",
+    "location": {
+      "lat": 21.3069444,
+      "lng": -157.8583333
+    }
+  },
+  {
+    "title": "Boise",
+    "place_id": "ChIJnbRH6XLxrlQRm51nNpuYW5o",
+    "long_name": "Idaho",
+    "short_name": "ID",
+    "location": {
+      "lat": 43.6187102,
+      "lng": -116.2146068
+    }
+  },
+  {
+    "title": "Springfield",
+    "place_id": "ChIJd9HbJB05dYgRIm2ozO6CLOc",
+    "long_name": "Illinois",
+    "short_name": "IL",
+    "location": {
+      "lat": 39.78172130000001,
+      "lng": -89.6501481
+    }
+  },
+  {
+    "title": "Indianapolis",
+    "place_id": "ChIJA2p5p_9Qa4gRfOq5QPadjtY",
+    "long_name": "Indiana",
+    "short_name": "IN",
+    "location": {
+      "lat": 39.768403,
+      "lng": -86.158068
+    }
+  },
+  {
+    "title": "Des Moines",
+    "place_id": "ChIJ5x5hwaSZ7ocRsuSRJlEoAHE",
+    "long_name": "Iowa",
+    "short_name": "IA",
+    "location": {
+      "lat": 41.6005448,
+      "lng": -93.6091064
+    }
+  },
+  {
+    "title": "Topeka",
+    "place_id": "ChIJKXrs2uQCv4cR8KfjatDnK74",
+    "long_name": "Kansas",
+    "short_name": "KS",
+    "location": {
+      "lat": 39.0558235,
+      "lng": -95.68901849999999
+    }
+  },
+  {
+    "title": "Frankfort",
+    "place_id": "ChIJyVMZi0xzQogRXEJniKAYZFM",
+    "long_name": "Kentucky",
+    "short_name": "KY",
+    "location": {
+      "lat": 38.2009055,
+      "lng": -84.87328350000001
+    }
+  },
+  {
+    "title": "Baton Rouge",
+    "place_id": "ChIJy3RfMmc4JIYRHZpXkdvxIyE",
+    "long_name": "Louisiana",
+    "short_name": "LA",
+    "location": {
+      "lat": 30.4582829,
+      "lng": -91.1403196
+    }
+  },
+  {
+    "title": "Augusta",
+    "place_id": "ChIJncSsr_0AskwRLQsiZI1Io3k",
+    "long_name": "Maine",
+    "short_name": "ME",
+    "location": {
+      "lat": 44.3106241,
+      "lng": -69.7794897
+    }
+  },
+  {
+    "title": "Annapolis",
+    "place_id": "ChIJ1S9ncGX2t4kRSyeo0_1U-EM",
+    "long_name": "Maryland",
+    "short_name": "MD",
+    "location": {
+      "lat": 38.9784453,
+      "lng": -76.4921829
+    }
+  },
+  {
+    "title": "Boston",
+    "place_id": "ChIJGzE9DS1l44kRoOhiASS_fHg",
+    "long_name": "Massachusetts",
+    "short_name": "MA",
+    "location": {
+      "lat": 42.3600825,
+      "lng": -71.0588801
+    }
+  },
+  {
+    "title": "Lansing",
+    "place_id": "ChIJN4wxfxzAIogRnp0CiSO2eEM",
+    "long_name": "Michigan",
+    "short_name": "MI",
+    "location": {
+      "lat": 42.732535,
+      "lng": -84.5555347
+    }
+  },
+  {
+    "title": "Saint Paul",
+    "place_id": "ChIJnzfp5M7UslIRKS7aP9KRcsg",
+    "long_name": "Minnesota",
+    "short_name": "MN",
+    "location": {
+      "lat": 44.9537029,
+      "lng": -93.08995779999999
+    }
+  },
+  {
+    "title": "Jackson",
+    "place_id": "ChIJIRt0kH8rKIYRoDjwQeTNEwc",
+    "long_name": "Mississippi",
+    "short_name": "MS",
+    "location": {
+      "lat": 32.2987573,
+      "lng": -90.1848103
+    }
+  },
+  {
+    "title": "Jefferson City",
+    "place_id": "ChIJ8Qo7Tqtd24cRrdmovEvJ57I",
+    "long_name": "Missouri",
+    "short_name": "MO",
+    "location": {
+      "lat": 38.57670170000001,
+      "lng": -92.1735164
+    }
+  },
+  {
+    "title": "Helena",
+    "place_id": "ChIJTdvH7Q9RQ1MRFPf943EdTCE",
+    "long_name": "Montana",
+    "short_name": "MT",
+    "location": {
+      "lat": 46.5883707,
+      "lng": -112.0245054
+    }
+  },
+  {
+    "title": "Lincoln",
+    "place_id": "ChIJZRJWylm-locRud7VH5uFOmM",
+    "long_name": "Nebraska",
+    "short_name": "NE",
+    "location": {
+      "lat": 40.8257625,
+      "lng": -96.6851982
+    }
+  },
+  {
+    "title": "Carson City",
+    "place_id": "ChIJcbTe-KEKmYARKDjivYJsnPc",
+    "long_name": "Nevada",
+    "short_name": "NV",
+    "location": {
+      "lat": 39.1637984,
+      "lng": -119.7674034
+    }
+  },
+  {
+    "title": "Concord",
+    "place_id": "ChIJF4lKFZZq4okR8SglpqBxqAU",
+    "long_name": "New Hampshire",
+    "short_name": "NH",
+    "location": {
+      "lat": 43.2081366,
+      "lng": -71.53757179999999
+    }
+  },
+  {
+    "title": "Trenton",
+    "place_id": "ChIJubs9LUhDwYkRvNdciX9WFs8",
+    "long_name": "New Jersey",
+    "short_name": "NJ",
+    "location": {
+      "lat": 40.2170534,
+      "lng": -74.7429384
+    }
+  },
+  {
+    "title": "Santa Fe",
+    "place_id": "ChIJqVKY50NQGIcRQN-I_XMjkIw",
+    "long_name": "New Mexico",
+    "short_name": "NM",
+    "location": {
+      "lat": 35.6869752,
+      "lng": -105.937799
+    }
+  },
+  {
+    "title": "Albany",
+    "place_id": "ChIJS_tPzDQK3okRxCjnoBJjoeE",
+    "long_name": "New York",
+    "short_name": "NY",
+    "location": {
+      "lat": 42.6525793,
+      "lng": -73.7562317
+    }
+  },
+  {
+    "title": "Raleigh",
+    "place_id": "ChIJ9-BRny9arIkRrfARilK2kGc",
+    "long_name": "North Carolina",
+    "short_name": "NC",
+    "location": {
+      "lat": 35.7795897,
+      "lng": -78.6381787
+    }
+  },
+  {
+    "title": "Bismarck",
+    "place_id": "ChIJY-nYVxKD11IRk8q7-RK9qsw",
+    "long_name": "North Dakota",
+    "short_name": "ND",
+    "location": {
+      "lat": 46.8083268,
+      "lng": -100.7837392
+    }
+  },
+  {
+    "title": "Columbus",
+    "place_id": "ChIJcd6QucGJOIgRM7Wxz_hmMuQ",
+    "long_name": "Ohio",
+    "short_name": "OH",
+    "location": {
+      "lat": 39.9611755,
+      "lng": -82.99879419999999
+    }
+  },
+  {
+    "title": "Oklahoma City",
+    "place_id": "ChIJgdL4flSKrYcRnTpP0XQSojM",
+    "long_name": "Oklahoma",
+    "short_name": "OK",
+    "location": {
+      "lat": 35.4675602,
+      "lng": -97.5164276
+    }
+  },
+  {
+    "title": "Salem",
+    "place_id": "ChIJY5xLvPz-v1QRwlcDj-ApNPk",
+    "long_name": "Oregon",
+    "short_name": "OR",
+    "location": {
+      "lat": 44.9428975,
+      "lng": -123.0350963
+    }
+  },
+  {
+    "title": "Harrisburg",
+    "place_id": "ChIJl54HuBbByIkR1UaNEshCbrs",
+    "long_name": "Pennsylvania",
+    "short_name": "PA",
+    "location": {
+      "lat": 40.2731911,
+      "lng": -76.8867008
+    }
+  },
+  {
+    "title": "Providence",
+    "place_id": "ChIJXXN-Q-BE5IkRJ7azSE1832k",
+    "long_name": "Rhode Island",
+    "short_name": "RI",
+    "location": {
+      "lat": 41.8239891,
+      "lng": -71.4128343
+    }
+  },
+  {
+    "title": "Columbia",
+    "place_id": "ChIJ49ExeWml-IgRlvp5s_QIKPM",
+    "long_name": "South Carolina",
+    "short_name": "SC",
+    "location": {
+      "lat": 34.0007104,
+      "lng": -81.0348144
+    }
+  },
+  {
+    "title": "Pierre",
+    "place_id": "ChIJkfiIsmRK1VIRkq8xWRZQmZ4",
+    "long_name": "South Dakota",
+    "short_name": "SD",
+    "location": {
+      "lat": 44.3683156,
+      "lng": -100.3509665
+    }
+  },
+  {
+    "title": "Nashville",
+    "place_id": "ChIJPZDrEzLsZIgRoNrpodC5P30",
+    "long_name": "Tennessee",
+    "short_name": "TN",
+    "location": {
+      "lat": 36.1626638,
+      "lng": -86.7816016
+    }
+  },
+  {
+    "title": "Austin",
+    "place_id": "ChIJLwPMoJm1RIYRetVp1EtGm10",
+    "long_name": "Texas",
+    "short_name": "TX",
+    "location": {
+      "lat": 30.267153,
+      "lng": -97.74306079999999
+    }
+  },
+  {
+    "title": "Salt Lake City",
+    "place_id": "ChIJ7THRiJQ9UocRyjFNSKC3U1s",
+    "long_name": "Utah",
+    "short_name": "UT",
+    "location": {
+      "lat": 40.7607793,
+      "lng": -111.8910474
+    }
+  },
+  {
+    "title": "Montpelier",
+    "place_id": "ChIJBepNxIyntUwRNljrTAkeiQQ",
+    "long_name": "Vermont",
+    "short_name": "VT",
+    "location": {
+      "lat": 44.26005929999999,
+      "lng": -72.5753869
+    }
+  },
+  {
+    "title": "Richmond",
+    "place_id": "ChIJ7cmZVwkRsYkRxTxC4m0-2L8",
+    "long_name": "Virginia",
+    "short_name": "VA",
+    "location": {
+      "lat": 37.5407246,
+      "lng": -77.43604809999999
+    }
+  },
+  {
+    "title": "Olympia",
+    "place_id": "ChIJaVUorsHJkVQRgxuI4pdhFE8",
+    "long_name": "Washington",
+    "short_name": "WA",
+    "location": {
+      "lat": 47.0378741,
+      "lng": -122.9006951
+    }
+  },
+  {
+    "title": "Charleston",
+    "place_id": "ChIJOV0UiM4sT4gRCxvJBEeoYXY",
+    "long_name": "West Virginia",
+    "short_name": "WV",
+    "location": {
+      "lat": 38.3498195,
+      "lng": -81.6326234
+    }
+  },
+  {
+    "title": "Madison",
+    "place_id": "ChIJ_xkgOm1TBogRmEFIurX8DE4",
+    "long_name": "Wisconsin",
+    "short_name": "WI",
+    "location": {
+      "lat": 42.998071,
+      "lng": -89.56638889999999
+    }
+  },
+  {
+    "title": "Cheyenne",
+    "place_id": "ChIJk-9zLnY4b4cRKy2Xj0EwCrE",
+    "long_name": "Wyoming",
+    "short_name": "WY",
+    "location": {
+      "lat": 41.1399814,
+      "lng": -104.8202462
+    }
+  }
+]
