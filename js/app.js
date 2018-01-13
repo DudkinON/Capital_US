@@ -65,6 +65,13 @@ if (initMap !== undefined) var initMap;
       }
       map.fitBounds(bounds);
     };
+
+    scope.hideMarkers = function (markers) {
+
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+    };
   };
 
 })();
