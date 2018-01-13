@@ -104,10 +104,15 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.createMarkers = function (locations, $scope) {
-
+      /**
+       * Create markers on the map
+       * @param {locations | array}
+       * @param {$scope | object}
+       * @return void
+       */
       for (var i = 0; i < locations.length; i++) {
 
-
+        // Create a marker per location, and put into markers array.
         $scope.marker = new google.maps.Marker({
           map: map,
           place_id: locations[i].place_id,
@@ -120,16 +125,16 @@ if (initMap !== undefined) var initMap;
 
         scope.createLink($scope);
 
-
+        // Push the marker to our array of markers.
         $scope.markers.push($scope.marker);
 
-
+        // Create an onclick event to open an infowindow at each marker.
         $scope.marker.addListener('click', function () {
           $scope.populateInfoWindow(this, $scope.largeInfowindow, $scope.locations);
         });
         $scope.bounds.extend($scope.markers[i].position);
       }
-
+      // Extend the boundaries of the map for each marker
       map.fitBounds($scope.bounds);
     };
   };
