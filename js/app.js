@@ -208,6 +208,26 @@ if (initMap !== undefined) var initMap;
         scope.largeInfowindow = new google.maps.InfoWindow();
         scope.bounds = new google.maps.LatLngBounds();
 
+        // Create filter
+        scope.filteredPlaces = ko.computed(function () {
+          var filter = scope.filter().toLowerCase();
+          if (filter) {
+            // Hide all markers
+            scope.worker.hideMarkers(scope.markers);
+
+            // Get filtered markers
+            var markers = ko.utils.arrayFilter(scope.markers, function (item) {
+              return scope.worker.stringStartsWith(item.title.toLowerCase(), filter);
+            });
+
+            // Display filtered markers
+            scope.worker.showMarkers(markers);
+          } else {
+            // Display all markers
+            scope.worker.showMarkers(scope.markers);
+          }
+        }, scope);
+
         // Create markers
         scope.worker.createMarkers(scope.locations(), scope);
       };
