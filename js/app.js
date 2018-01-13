@@ -41,7 +41,11 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.getArticles = function (q, func) {
-
+      /**
+       * Async function get articles and use func to provide data
+       * @param (q: string, func: function)
+       * @type {string}
+       */
       var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
       var link = url + 'api-key=' + $('#ny-api-key').data('api-key') + '&q=' + q;
       $.getJSON(link, func);
