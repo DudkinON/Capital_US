@@ -8,6 +8,9 @@ if (initMap !== undefined) var initMap;
   var Worker = function () {
     var scope = this;
     scope.getLocations = function (func) {
+      /**
+       * Async function provide locations
+       */
       $.getJSON('/js/locations.json', func)
     };
   };
