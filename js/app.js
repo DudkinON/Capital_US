@@ -102,6 +102,36 @@ if (initMap !== undefined) var initMap;
         $scope.populateInfoWindow(item, $scope.largeInfowindow, $scope.locations);
       }, false);
     };
+
+    scope.createMarkers = function (locations, $scope) {
+
+      for (var i = 0; i < locations.length; i++) {
+
+
+        $scope.marker = new google.maps.Marker({
+          map: map,
+          place_id: locations[i].place_id,
+          long_name: locations[i].long_name,
+          position: locations[i].location,
+          title: locations[i].title,
+          animation: google.maps.Animation.DROP,
+          id: i
+        });
+
+        scope.createLink($scope);
+
+
+        $scope.markers.push($scope.marker);
+
+
+        $scope.marker.addListener('click', function () {
+          $scope.populateInfoWindow(this, $scope.largeInfowindow, $scope.locations);
+        });
+        $scope.bounds.extend($scope.markers[i].position);
+      }
+
+      map.fitBounds($scope.bounds);
+    };
   };
 
 })();
