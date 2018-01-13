@@ -78,10 +78,16 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.createLink = function ($scope) {
+      /**
+       * Create an element of menu
+       * @type {HTMLElement | null}
+       * @return void
+       */
 
+      // Get menu container
       var element = document.getElementById('menu');
 
-
+      // Create "a" element and set attributes
       var a = document.createElement('a');
       a.setAttribute('class', 'mdl-navigation__link');
       a.setAttribute('href', "");
@@ -89,7 +95,7 @@ if (initMap !== undefined) var initMap;
       a.innerText = $scope.marker.title;
       element.appendChild(a);
 
-
+      // Create a new event on click
       a.addEventListener('click', function (elem) {
         elem.preventDefault();
         var item = $scope.markers[Number(this.getAttribute("id"))];
