@@ -17,7 +17,11 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.stringStartsWith = function (string, startsWith) {
-
+      /**
+       * Gets string and searches within startsWith string at beginning
+       * @type {*|string}
+       * @return bool
+       */
       string = string || "";
       if (startsWith.length > string.length)
         return false;
