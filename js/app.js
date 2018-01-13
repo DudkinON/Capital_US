@@ -192,7 +192,26 @@ if (initMap !== undefined) var initMap;
     scope.locations = ko.observableArray([]);
     scope.filter = ko.observable("");
 
+    scope.init = function (data) {
 
+      // Get locations
+      scope.locations(data);
+
+      initMap = function () {
+
+        // Create map object
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoomControl: true,
+          mapTypeControl: true
+        });
+        // Create info window
+        scope.largeInfowindow = new google.maps.InfoWindow();
+        scope.bounds = new google.maps.LatLngBounds();
+
+        // Create markers
+        scope.worker.createMarkers(scope.locations(), scope);
+      };
+    };
   }
 
 })();
