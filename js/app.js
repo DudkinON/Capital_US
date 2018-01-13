@@ -250,6 +250,26 @@ if (initMap !== undefined) var initMap;
           var img = "url('" + img_url + marker.title + '+' + marker.long_name + "')";
           infowindow.marker = marker;
 
+          // Get articles and display it
+          scope.worker.getArticles(city, function (data) {
+
+            // Define articles
+            var articles;
+            if (data && data.status === "OK" && data.response.docs.length > 0) {
+              articles = data.response.docs;
+            } else {
+              articles = scope.worker.getEmptyArticle();
+            }
+
+            // Create an information window
+            infowindow.setContent(scope.worker.getTemplate(articles, cityinfo, img));
+            infowindow.open(map, marker);
+
+            // Make sure the marker property is cleared if the infowindow is closed.
+            infowindow.addListener('closeclick', function () {
+              infowindow.marker = null;
+            });
+          });
         });
       }
     }
