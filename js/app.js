@@ -188,7 +188,7 @@ if (initMap !== undefined) var initMap;
     scope.worker = new Worker();
     scope.largeInfowindow = {};
     scope.bounds = {};
-    scope.title = 'Capital US';
+    scope.title = 'U.S. Capitals';
     scope.locations = ko.observableArray([]);
     scope.filter = ko.observable("");
 
