@@ -273,6 +273,10 @@ if (initMap !== undefined) var initMap;
     };
 
     scope.listener = function () {
+      /**
+       * Create info window for current element
+       * @return void
+       */
       scope.populateInfoWindow(this, scope.largeInfowindow, scope.locations);
     };
   };
