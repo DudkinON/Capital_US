@@ -13,7 +13,7 @@ if (initMap !== undefined) var initMap;
       /**
        * Async function provide locations
        */
-      $.getJSON('/js/locations.json', func)
+      $.getJSON('/js/locations.json', func);
     };
 
     scope.stringStartsWith = function (string, startsWith) {
@@ -129,9 +129,7 @@ if (initMap !== undefined) var initMap;
         $scope.markers.push($scope.marker);
 
         // Create an onclick event to open an infowindow at each marker.
-        $scope.marker.addListener('click', function () {
-          $scope.populateInfoWindow(this, $scope.largeInfowindow, $scope.locations);
-        });
+        $scope.marker.addListener('click', $scope.listener);
         $scope.bounds.extend($scope.markers[i].position);
       }
       // Extend the boundaries of the map for each marker
@@ -272,7 +270,11 @@ if (initMap !== undefined) var initMap;
           });
         });
       }
-    }
+    };
+
+    scope.listener = function () {
+      scope.populateInfoWindow(this, scope.largeInfowindow, scope.locations);
+    };
   };
 
   ko.applyBindings(new View(), document.getElementsByTagName('html')[0]);
