@@ -183,7 +183,7 @@ function googleError(err) {
       var img_params = 'size=350x350&location=';
       var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
       return "url('" + img_url + marker.title + '+' + marker.long_name + "')";
-    }
+    };
   };
 
 
