@@ -136,14 +136,20 @@ function googleError(err) {
        * @param {img | url}
        * @return html
        */
+      var titleEtc;
+      var snippetEtc;
+      if (articles[0].headline.main.length > 23) titleEtc = '...';
+      else titleEtc = '';
+      if (articles[0].snippet.length > 194) snippetEtc = '...';
+      else snippetEtc = '';
       return '<div class="nm-card-square mdl-card mdl-shadow--2dp">\n' +
         '  <div class="mdl-card__title mdl-card--expand" ' +
         'style="background-image: ' + img + '">' +
         '    <h2 class="mdl-card__title-text">' + cityinfo.formatted_address + '</h2>\n' +
         '  </div>\n' +
         '  <div class="mdl-card__supporting-text">\n' +
-        '  <h4>' + articles[0].headline.main + '</h4>' +
-        '  <p>' + articles[0].snippet + '</p>' +
+        '  <h4>' + articles[0].headline.main.substring(0, 23) + titleEtc + '</h4>' +
+        '  <p>' + articles[0].snippet.substring(0, 194) + snippetEtc + '</p>' +
         '  </div>\n' +
         '  <div class="mdl-card__actions mdl-card--border">\n' +
         '    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ' +
