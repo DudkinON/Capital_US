@@ -1,4 +1,4 @@
-if (initMap !== undefined) var initMap;
+if (initMap === undefined) var initMap;
 
 (function () {
   'use strict';
@@ -9,11 +9,11 @@ if (initMap !== undefined) var initMap;
 
     var scope = this;
 
-    scope.getLocations = function (func) {
+    scope.getLocations = function (func, e) {
       /**
        * Async function provide locations
        */
-      $.getJSON('/js/locations.json', func);
+      $.getJSON('/js/locations.json', func).fail(e);
     };
 
     scope.stringStartsWith = function (string, startsWith) {
@@ -51,7 +51,7 @@ if (initMap !== undefined) var initMap;
       $.getJSON(link, func);
     };
 
-    scope.showMarkers = function (markers) {
+    scope.showMarkers = function (markers, $scope) {
       /**
        * Show markers
        * @param {markers}
@@ -60,8 +60,10 @@ if (initMap !== undefined) var initMap;
        */
       var bounds = new google.maps.LatLngBounds();
       for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-        bounds.extend(markers[i].position);
+        $scope.marker = markers[i];
+        $scope.marker.setMap(map);
+        bounds.extend($scope.marker.position);
+        scope.createLink($scope)
       }
       map.fitBounds(bounds);
     };
@@ -75,6 +77,7 @@ if (initMap !== undefined) var initMap;
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
+      document.getElementById('menu').innerHTML = '';
     };
 
     scope.createLink = function ($scope) {
@@ -172,6 +175,11 @@ if (initMap !== undefined) var initMap;
         web_url: ""
       }];
     };
+
+    scope.error = function (err) {
+      $('#map').html('<h1 style="color: red;">Can\'t load the locations.</h1>\n' +
+        '<h3 style="color: red;">' + err.statusText + '.</h3>');
+    };
   };
 
 
@@ -219,10 +227,10 @@ if (initMap !== undefined) var initMap;
             });
 
             // Display filtered markers
-            scope.worker.showMarkers(markers);
+            scope.worker.showMarkers(markers, scope);
           } else {
             // Display all markers
-            scope.worker.showMarkers(scope.markers);
+            scope.worker.showMarkers(scope.markers, scope);
           }
         }, scope);
 
@@ -232,7 +240,7 @@ if (initMap !== undefined) var initMap;
     };
 
     // Get locations and init map
-    scope.worker.getLocations(scope.init);
+    scope.worker.getLocations(scope.init, scope.worker.error);
 
     scope.populateInfoWindow = function (marker, infowindow) {
       // Check to make sure the infowindow is not already opened on this marker.
