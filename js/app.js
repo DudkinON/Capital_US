@@ -248,6 +248,7 @@ function googleError(err) {
     scope.populateInfoWindow = function (marker, infowindow) {
       // Check to make sure the infowindow is not already opened on this marker.
       if (infowindow.marker !== marker) {
+        scope.marker = marker;
         var cityinfo;
         var city = scope.worker.prepareAddress(marker.title);
         var request = {placeId: marker.place_id};
@@ -270,12 +271,19 @@ function googleError(err) {
               articles = scope.worker.getEmptyArticle();
             }
 
+            if (marker.getAnimation() !== null) {
+              marker.setAnimation(null);
+            } else {
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+
             // Create an information window
             infowindow.setContent(scope.worker.getTemplate(articles, cityinfo, img));
             infowindow.open(map, marker);
 
             // Make sure the marker property is cleared if the infowindow is closed.
             infowindow.addListener('closeclick', function () {
+              marker.setAnimation(null);
               infowindow.marker = null;
             });
           });
@@ -288,6 +296,7 @@ function googleError(err) {
        * Create info window for current element
        * @return void
        */
+      scope.marker.setAnimation(null);
       scope.populateInfoWindow(this, scope.largeInfowindow, scope.locations);
     };
   };
