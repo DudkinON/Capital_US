@@ -173,7 +173,7 @@ function googleError(err) {
         '<h3 style="color: red;">' + err.statusText + '.</h3>');
     };
 
-    scope.getImage = function () {
+    scope.getImage = function (marker) {
       var img_params = 'size=350x350&location=';
       var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
       return "url('" + img_url + marker.title + '+' + marker.long_name + "')";
@@ -254,14 +254,32 @@ function googleError(err) {
     scope.populateInfoWindow = function (marker, infowindow) {
       // Check to make sure the infowindow is not already opened on this marker.
       if (infowindow.marker !== marker) {
+
+        // Define current marker
         scope.marker = marker;
+
+        // Create city info variable
         var cityinfo;
+
+        // Prepare city title for query
         var city = scope.worker.prepareAddress(marker.title);
+
+        // Prepare request info
         var request = {placeId: marker.place_id};
+
+        // Create an instance of the Places Service
         var service = new google.maps.places.PlacesService(map);
+
+        // Get detailed info on the place
         service.getDetails(request, function (data) {
+
+          // Define city info
           cityinfo = data;
+
+          // Get images
           var img = scope.worker.getImage(marker);
+
+          // Define info window marker
           infowindow.marker = marker;
 
           // Get articles and display it
@@ -275,11 +293,8 @@ function googleError(err) {
               articles = scope.worker.getEmptyArticle();
             }
 
-            if (marker.getAnimation() !== null) {
-              marker.setAnimation(null);
-            } else {
-              marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
+            // Add marker animation
+            marker.setAnimation(google.maps.Animation.BOUNCE);
 
             // Create an information window
             infowindow.setContent(scope.worker.getTemplate(articles, cityinfo, img));
@@ -287,7 +302,11 @@ function googleError(err) {
 
             // Make sure the marker property is cleared if the infowindow is closed.
             infowindow.addListener('closeclick', function () {
+
+              // Remove current marker animation
               marker.setAnimation(null);
+
+              // Close info window
               infowindow.marker = null;
             });
           });
@@ -300,7 +319,11 @@ function googleError(err) {
        * Create info window for current element
        * @return void
        */
+
+      // Remove current marker animation
       scope.marker.setAnimation(null);
+
+      // Create info window
       scope.populateInfoWindow(this, scope.largeInfowindow, scope.locations);
     };
   };
