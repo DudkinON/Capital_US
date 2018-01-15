@@ -177,6 +177,9 @@ if (initMap === undefined) var initMap;
     };
 
     scope.error = function (err) {
+      /**
+       * If the locations are not available, show error message
+       */
       $('#map').html('<h1 style="color: red;">Can\'t load the locations.</h1>\n' +
         '<h3 style="color: red;">' + err.statusText + '.</h3>');
     };
