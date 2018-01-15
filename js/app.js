@@ -1,4 +1,9 @@
-if (initMap === undefined) var initMap;
+var initMap;
+
+function googleError(err) {
+  console.log(err);
+  $('#map').html('<h1 style="color: red;">Can\'t load map, please try later</h1>');
+}
 
 (function () {
   'use strict';
@@ -62,9 +67,10 @@ if (initMap === undefined) var initMap;
       for (var i = 0; i < markers.length; i++) {
         $scope.marker = markers[i];
         $scope.marker.setMap(map);
+        scope.addMenuItem($scope);
         bounds.extend($scope.marker.position);
-        scope.createLink($scope)
       }
+
       map.fitBounds(bounds);
     };
 
@@ -80,30 +86,13 @@ if (initMap === undefined) var initMap;
       document.getElementById('menu').innerHTML = '';
     };
 
-    scope.createLink = function ($scope) {
+    scope.addMenuItem = function ($scope) {
       /**
        * Create an element of menu
        * @type {HTMLElement | null}
        * @return void
        */
-
-        // Get menu container
-      var element = document.getElementById('menu');
-
-      // Create "a" element and set attributes
-      var a = document.createElement('a');
-      a.setAttribute('class', 'mdl-navigation__link');
-      a.setAttribute('href', "");
-      a.setAttribute('id', $scope.marker.id);
-      a.innerText = $scope.marker.title;
-      element.appendChild(a);
-
-      // Create a new event on click
-      a.addEventListener('click', function (elem) {
-        elem.preventDefault();
-        var item = $scope.markers[Number(this.getAttribute("id"))];
-        $scope.populateInfoWindow(item, $scope.largeInfowindow, $scope.locations);
-      }, false);
+      $scope.menu.push($scope.marker);
     };
 
     scope.createMarkers = function (locations, $scope) {
@@ -126,7 +115,7 @@ if (initMap === undefined) var initMap;
           id: i
         });
 
-        scope.createLink($scope);
+        scope.addMenuItem($scope);
 
         // Push the marker to our array of markers.
         $scope.markers.push($scope.marker);
@@ -199,7 +188,14 @@ if (initMap === undefined) var initMap;
     scope.bounds = {};
     scope.title = 'U.S. Capitals';
     scope.locations = ko.observableArray([]);
+    scope.menu = ko.observableArray([]);
     scope.filter = ko.observable("");
+    scope.AddLink = function () {
+      console.log(this);
+      var item = scope.markers[Number(this.id)];
+      console.log(item);
+      scope.populateInfoWindow(item, scope.largeInfowindow, scope.locations);
+    };
 
     scope.init = function (data) {
 
@@ -221,8 +217,12 @@ if (initMap === undefined) var initMap;
         scope.filteredPlaces = ko.computed(function () {
           var filter = scope.filter().toLowerCase();
           if (filter) {
+
             // Hide all markers
             scope.worker.hideMarkers(scope.markers);
+
+            // Remove all menu elements
+            scope.menu([]);
 
             // Get filtered markers
             var markers = ko.utils.arrayFilter(scope.markers, function (item) {
