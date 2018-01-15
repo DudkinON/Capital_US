@@ -165,13 +165,19 @@ function googleError(err) {
       }];
     };
 
-    scope.error = function (err) {
+    scope.error = function (marker) {
       /**
        * If the locations are not available, show error message
        */
       $('#map').html('<h1 style="color: red;">Can\'t load the locations.</h1>\n' +
         '<h3 style="color: red;">' + err.statusText + '.</h3>');
     };
+
+    scope.getImage = function () {
+      var img_params = 'size=350x350&location=';
+      var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
+      return "url('" + img_url + marker.title + '+' + marker.long_name + "')";
+    }
   };
 
 
@@ -255,9 +261,7 @@ function googleError(err) {
         var service = new google.maps.places.PlacesService(map);
         service.getDetails(request, function (data) {
           cityinfo = data;
-          var img_params = 'size=350x350&location=';
-          var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
-          var img = "url('" + img_url + marker.title + '+' + marker.long_name + "')";
+          var img = scope.worker.getImage(marker);
           infowindow.marker = marker;
 
           // Get articles and display it
