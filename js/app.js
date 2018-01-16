@@ -45,7 +45,7 @@ function googleError(err) {
       return query.join('+');
     };
 
-    scope.getArticles = function (q, func) {
+    scope.getArticles = function (q, func, err) {
       /**
        * Async function get articles and use func to provide data
        * @param (q: string, func: function)
@@ -53,7 +53,7 @@ function googleError(err) {
        */
       var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
       var link = url + 'api-key=' + $('#ny-api-key').data('api-key') + '&q=' + q;
-      $.getJSON(link, func);
+      $.getJSON(link, func).fail(err);
     };
 
     scope.showMarkers = function (markers, $scope) {
@@ -320,7 +320,14 @@ function googleError(err) {
 
             // Open info window
             scope.worker.createInfoWindow(infowindow);
-          };
+          }, function (err) {
+            // define articles
+            infowindow.articles = scope.worker.getErrorArticle();
+            console.log(err);
+
+            // Open info window
+            scope.worker.createInfoWindow(infowindow);
+          });
         });
       }
     };
