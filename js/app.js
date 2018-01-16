@@ -18,7 +18,7 @@ function googleError(err) {
       /**
        * Async function provide locations
        */
-      $.getJSON('/js/locations2.json', func).fail(e);
+      $.getJSON('/js/locations.json', func).fail(e);
     };
 
     scope.stringStartsWith = function (string, startsWith) {
@@ -141,6 +141,13 @@ function googleError(err) {
       else titleEtc = '';
       if (articles[0].snippet.length > 194) snippetEtc = '...';
       else snippetEtc = '';
+      var url;
+      if (articles[0].web_url === '') url = '';
+      else url = '  <div class="mdl-card__actions mdl-card--border">\n' +
+        '    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ' +
+        '       href="' + articles[0].web_url + '" target="_blank"' +
+        '     >read</a>\n' +
+        '  </div>\n';
       return '<div class="nm-card-square mdl-card mdl-shadow--2dp">\n' +
         '  <div class="mdl-card__title mdl-card--expand" ' +
         'style="background-image: ' + img + '">' +
@@ -150,22 +157,18 @@ function googleError(err) {
         '  <h4>' + articles[0].headline.main.substring(0, 23) + titleEtc + '</h4>' +
         '  <p>' + articles[0].snippet.substring(0, 194) + snippetEtc + '</p>' +
         '  </div>\n' +
-        '  <div class="mdl-card__actions mdl-card--border">\n' +
-        '    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ' +
-        '       href="' + articles[0].web_url + '" target="_blank"' +
-        '     >read</a>\n' +
-        '  </div>\n' +
+         url +
         '</div>';
     };
 
-    scope.getEmptyArticle = function () {
+    scope.getErrorArticle = function () {
       /**
        * Return empty article
        * return array
        */
       return [{
-        headline: {main: "Articles didn't found"},
-        snippet: "",
+        headline: {main: "Error"},
+        snippet: "Can't upload the article",
         web_url: ""
       }];
     };
@@ -182,6 +185,25 @@ function googleError(err) {
       var img_params = 'size=350x350&location=';
       var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
       return "url('" + img_url + marker.title + '+' + marker.long_name + "')";
+    };
+
+    scope.createInfoWindow = function (info) {
+      // Add marker animation
+      info.marker.setAnimation(google.maps.Animation.BOUNCE);
+
+      // Create an information window
+      info.setContent(scope.getTemplate(info.articles, info.cityinfo, info.img));
+      info.open(map, info.marker);
+
+      // Make sure the marker property is cleared if the infowindow is closed.
+      info.addListener('closeclick', function () {
+
+        // Remove current marker animation
+        info.marker.setAnimation(null);
+
+        // Close info window
+        info.marker = null;
+      });
     };
   };
 
@@ -263,8 +285,6 @@ function googleError(err) {
         // Define current marker
         scope.marker = marker;
 
-        // Create city info variable
-        var cityinfo;
 
         // Prepare city title for query
         var city = scope.worker.prepareAddress(marker.title);
@@ -279,42 +299,28 @@ function googleError(err) {
         service.getDetails(request, function (data) {
 
           // Define city info
-          cityinfo = data;
+          infowindow.cityinfo = data;
 
           // Get images
-          var img = scope.worker.getImage(marker);
+          infowindow.img = scope.worker.getImage(marker);
 
           // Define info window marker
           infowindow.marker = marker;
+
 
           // Get articles and display it
           scope.worker.getArticles(city, function (data) {
 
             // Define articles
-            var articles;
             if (data && data.status === "OK" && data.response.docs.length > 0) {
-              articles = data.response.docs;
+              infowindow.articles = data.response.docs;
             } else {
-              articles = scope.worker.getEmptyArticle();
+              infowindow.articles = scope.worker.getErrorArticle();
             }
 
-            // Add marker animation
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-
-            // Create an information window
-            infowindow.setContent(scope.worker.getTemplate(articles, cityinfo, img));
-            infowindow.open(map, marker);
-
-            // Make sure the marker property is cleared if the infowindow is closed.
-            infowindow.addListener('closeclick', function () {
-
-              // Remove current marker animation
-              marker.setAnimation(null);
-
-              // Close info window
-              infowindow.marker = null;
-            });
-          });
+            // Open info window
+            scope.worker.createInfoWindow(infowindow);
+          };
         });
       }
     };
