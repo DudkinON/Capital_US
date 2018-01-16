@@ -197,6 +197,12 @@ function googleError(err) {
     };
 
     scope.createInfoWindow = function (info) {
+      /**
+       * Create and display info window
+       * @param {info | object}
+       * @return void
+       */
+
       // Add marker animation
       info.marker.setAnimation(google.maps.Animation.BOUNCE);
 
