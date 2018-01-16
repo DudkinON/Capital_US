@@ -18,7 +18,7 @@ function googleError(err) {
       /**
        * Async function provide locations
        */
-      $.getJSON('/js/locations.json', func).fail(e);
+      $.getJSON('/js/locations2.json', func).fail(e);
     };
 
     scope.stringStartsWith = function (string, startsWith) {
@@ -170,7 +170,7 @@ function googleError(err) {
       }];
     };
 
-    scope.error = function (marker) {
+    scope.error = function (err) {
       /**
        * If the locations are not available, show error message
        */
