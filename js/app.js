@@ -141,6 +141,8 @@ function googleError(err) {
       else titleEtc = '';
       if (articles[0].snippet.length > 194) snippetEtc = '...';
       else snippetEtc = '';
+
+      // Define link
       var url;
       if (articles[0].web_url === '') url = '';
       else url = '  <div class="mdl-card__actions mdl-card--border">\n' +
@@ -148,6 +150,7 @@ function googleError(err) {
         '       href="' + articles[0].web_url + '" target="_blank"' +
         '     >read</a>\n' +
         '  </div>\n';
+
       return '<div class="nm-card-square mdl-card mdl-shadow--2dp">\n' +
         '  <div class="mdl-card__title mdl-card--expand" ' +
         'style="background-image: ' + img + '">' +
@@ -182,6 +185,12 @@ function googleError(err) {
     };
 
     scope.getImage = function (marker) {
+      /**
+       * Return an image URL
+       * @type {string}
+       * @param {marker | object}
+       * @return string
+       */
       var img_params = 'size=350x350&location=';
       var img_url = '//maps.googleapis.com/maps/api/streetview?' + img_params;
       return "url('" + img_url + marker.title + '+' + marker.long_name + "')";
