@@ -239,7 +239,10 @@ function googleError(err) {
     scope.menu = ko.observableArray([]);
     scope.filter = ko.observable("");
     scope.AddLink = function () {
-      console.log(this);
+      /**
+       * Add click event to menu item
+       * @return void
+       */
       var item = scope.markers[Number(this.id)];
       scope.marker.setAnimation(null);
       scope.populateInfoWindow(item, scope.largeInfowindow, scope.locations);
