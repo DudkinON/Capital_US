@@ -24,7 +24,7 @@ To use, you must run any HTTP server, for example [Python](https://docs.python.o
 The entry point must be in the application folder. Run HTTP server and go 
 to http://localhost:8000.
 
-Change in index.html on line 6 "YOUR-NY-TIMES-API-KEY" to your New York Times 
+Change in index.html on line 7 "YOUR-NY-TIMES-API-KEY" to your New York Times 
 API key. 
 
 Change in index.html on line 49 the link 
