@@ -245,7 +245,7 @@ function googleError(err) {
        */
       var item = scope.markers[Number(this.id)];
       scope.marker.setAnimation(null);
-      scope.populateInfoWindow(item, scope.largeInfowindow, scope.locations);
+      scope.populateInfoWindow(item, scope.largeInfowindow);
     };
 
     scope.init = function (data) {
@@ -360,7 +360,7 @@ function googleError(err) {
       scope.marker.setAnimation(null);
 
       // Create info window
-      scope.populateInfoWindow(this, scope.largeInfowindow, scope.locations);
+      scope.populateInfoWindow(this, scope.largeInfowindow);
     };
   };
 
