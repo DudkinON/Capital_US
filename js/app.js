@@ -361,5 +361,5 @@ function googleError(err) {
     };
   };
 
-  ko.applyBindings(new View(), document.getElementsByTagName('html')[0]);
+  ko.applyBindings(new View());
 })();
