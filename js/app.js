@@ -83,7 +83,6 @@ function googleError(err) {
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
       }
-      document.getElementById('menu').innerHTML = '';
     };
 
     scope.addMenuItem = function ($scope) {
