@@ -205,7 +205,7 @@ function googleError(err) {
     scope.AddLink = function () {
       console.log(this);
       var item = scope.markers[Number(this.id)];
-      console.log(item);
+      scope.marker.setAnimation(null);
       scope.populateInfoWindow(item, scope.largeInfowindow, scope.locations);
     };
 
