@@ -208,7 +208,6 @@ function googleError(err) {
 
       // Create an information window
       info.setContent(scope.getTemplate(info.articles, info.cityinfo, info.img));
-      info.open(map, info.marker);
 
       // Make sure the marker property is cleared if the infowindow is closed.
       info.addListener('closeclick', function () {
@@ -325,6 +324,8 @@ function googleError(err) {
           // Define info window marker
           infowindow.marker = marker;
 
+          // Open info window
+          infowindow.open(map, infowindow.marker);
 
           // Get articles and display it
           scope.worker.getArticles(city, function (data) {
@@ -336,14 +337,14 @@ function googleError(err) {
               infowindow.articles = scope.worker.getErrorArticle();
             }
 
-            // Open info window
+            // Add data to info window
             scope.worker.createInfoWindow(infowindow);
           }, function (err) {
             // define articles
             infowindow.articles = scope.worker.getErrorArticle();
             console.log(err);
 
-            // Open info window
+            // Add data to info window
             scope.worker.createInfoWindow(infowindow);
           });
         });
