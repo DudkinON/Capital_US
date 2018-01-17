@@ -160,7 +160,7 @@ function googleError(err) {
         '  <h4>' + articles[0].headline.main.substring(0, 23) + titleEtc + '</h4>' +
         '  <p>' + articles[0].snippet.substring(0, 194) + snippetEtc + '</p>' +
         '  </div>\n' +
-         url +
+        url +
         '</div>';
     };
 
@@ -247,49 +247,50 @@ function googleError(err) {
       scope.populateInfoWindow(item, scope.largeInfowindow);
     };
 
+    initMap = function () {
+
+      // Create map object
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoomControl: true,
+        mapTypeControl: true
+      });
+      // Create info window
+      scope.largeInfowindow = new google.maps.InfoWindow();
+      scope.bounds = new google.maps.LatLngBounds();
+
+      // Create filter
+      scope.filteredPlaces = ko.computed(function () {
+        var filter = scope.filter().toLowerCase();
+        if (filter) {
+
+          // Hide all markers
+          scope.worker.hideMarkers(scope.markers);
+
+          // Remove all menu elements
+          scope.menu([]);
+
+          // Get filtered markers
+          var markers = ko.utils.arrayFilter(scope.markers, function (item) {
+            return scope.worker.stringStartsWith(item.title.toLowerCase(), filter);
+          });
+
+          // Display filtered markers
+          scope.worker.showMarkers(markers, scope);
+        } else {
+
+          // Display all markers
+          scope.worker.showMarkers(scope.markers, scope);
+        }
+      }, scope);
+
+      // Create markers
+      scope.worker.createMarkers(scope.locations(), scope);
+    };
+
     scope.init = function (data) {
 
       // Get locations
       scope.locations(data);
-
-      initMap = function () {
-
-        // Create map object
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoomControl: true,
-          mapTypeControl: true
-        });
-        // Create info window
-        scope.largeInfowindow = new google.maps.InfoWindow();
-        scope.bounds = new google.maps.LatLngBounds();
-
-        // Create filter
-        scope.filteredPlaces = ko.computed(function () {
-          var filter = scope.filter().toLowerCase();
-          if (filter) {
-
-            // Hide all markers
-            scope.worker.hideMarkers(scope.markers);
-
-            // Remove all menu elements
-            scope.menu([]);
-
-            // Get filtered markers
-            var markers = ko.utils.arrayFilter(scope.markers, function (item) {
-              return scope.worker.stringStartsWith(item.title.toLowerCase(), filter);
-            });
-
-            // Display filtered markers
-            scope.worker.showMarkers(markers, scope);
-          } else {
-            // Display all markers
-            scope.worker.showMarkers(scope.markers, scope);
-          }
-        }, scope);
-
-        // Create markers
-        scope.worker.createMarkers(scope.locations(), scope);
-      };
     };
 
     // Get locations and init map
